@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -11,10 +10,23 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public Button restartButton;
     public TextMeshProUGUI gameOverText;
+    public GameObject startPanel;
+    public bool gameStarted = false;
+    public static bool restartFromGame = false;
 
     void Start()
     {
         UpdateScoreText(); // Initialize score display
+        if (restartFromGame)
+    {
+        StartGame(); // Skip start panel if restarting
+    }
+    else
+    {
+        Time.timeScale = 0f; // Pause until start
+        if (startPanel != null)
+            startPanel.SetActive(true);
+    }
     }
     public void GameOver()
     {
@@ -25,6 +37,17 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over: Player died");
         Cursor.lockState = CursorLockMode.None;
         StopAllCoroutines(); // freeze game
+    }
+
+    public void StartGame()
+    {
+        if (startPanel != null)
+            startPanel.SetActive(false);
+
+        gameStarted = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        // Resume the game
+        Time.timeScale = 1f;
     }
 
     public void AddScore(int value)
@@ -43,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        // Time.timeScale = 1f;
+        restartFromGame = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

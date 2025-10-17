@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     {
         if (player == null)
             return;
+        GameManager gm = Object.FindFirstObjectByType<GameManager>();
+        if (gm == null || !gm.gameStarted) return;
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
         lookDirection.y = 0;
         enemyRb.AddForce(lookDirection * speed);
