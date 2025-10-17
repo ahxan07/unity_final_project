@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private float minZ = -36.792f;
     private float maxZ = -13.314f;
 
-    private float mouseSensitivity = 5f;
+    private float mouseSensitivity = 3f;
 
     private float rotationY = 0f;
 
