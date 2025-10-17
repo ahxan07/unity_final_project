@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameManager : MonoBehaviour
     public GameObject startPanel;
     public bool gameStarted = false;
     public static bool restartFromGame = false;
+    public AudioSource audioSource;
+    public AudioClip playerDeathClip;
+    public GameObject deathEffectPrefab;
 
     void Start()
     {
@@ -32,11 +36,22 @@ public class GameManager : MonoBehaviour
     {
         if (isGameOver) return;
         isGameOver = true;
-        gameOverText.gameObject.SetActive(true);
-        restartButton.gameObject.SetActive(true);
-        Debug.Log("Game Over: Player died");
         Cursor.lockState = CursorLockMode.None;
-        StopAllCoroutines(); // freeze game
+        StopAllCoroutines();
+        StartCoroutine(HandleGameOverSequence());
+    }
+    private IEnumerator HandleGameOverSequence()
+    {
+        // Play death sound if available
+        if (audioSource != null && playerDeathClip != null)
+        {
+            audioSource.PlayOneShot(playerDeathClip);
+            yield return new WaitForSeconds(playerDeathClip.length);
+        }
+
+        // Show Game Over UI
+        if (gameOverText != null) gameOverText.gameObject.SetActive(true);
+        if (restartButton != null) restartButton.gameObject.SetActive(true);
     }
 
     public void StartGame()
