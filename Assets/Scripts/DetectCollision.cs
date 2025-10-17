@@ -3,6 +3,7 @@ using UnityEngine;
 public class DetectCollisions : MonoBehaviour
 {
     private GameManager gameManager;
+    public GameObject deathEffectPrefab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +20,13 @@ public class DetectCollisions : MonoBehaviour
     {
         if (gameObject.CompareTag("Bullet") && other.CompareTag("Enemy"))
         {
+            Vector3 spawnPos = other.transform.position;
+
+            // Spawn particle effect instantly
+            if (deathEffectPrefab != null)
+            {
+                Instantiate(deathEffectPrefab, spawnPos, Quaternion.identity);
+            }
             Destroy(gameObject);
             Destroy(other.gameObject);
             gameManager.AddScore(1);

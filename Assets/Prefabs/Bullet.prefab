@@ -153,3 +153,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62df999bc6e314e4a857d23b9edc37ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DetectCollisions
+  deathEffectPrefab: {fileID: 5761875791929198315, guid: 2d69da69c44b44467ac9564eeea676fb, type: 3}
