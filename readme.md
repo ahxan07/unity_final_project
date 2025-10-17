@@ -12,9 +12,6 @@ If a zombie reaches you, it’s **Game Over** ☠️.
 |-------------|----------|------------|
 | ![Start Menu Screenshot](Assets/Screenshots/start-menu.png) | ![Gameplay Screenshot](Assets/Screenshots/gameplay.png) | ![Game Over Screenshot](Assets/Screenshots/gameover.png) |
 
-> 🖼️ *To show screenshots on GitHub:*  
-> Save your images inside `Assets/Screenshots/` and name them:  
-> `start-menu.png`, `gameplay.png`, and `gameover.png`.
 
 ---
 
