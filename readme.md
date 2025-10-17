@@ -27,3 +27,22 @@ If a zombie reaches you, it’s **Game Over** ☠️.
 - 🎥 **Smooth Camera Follow** — third-person camera behind player.
 
 ---
+
+
+## ⚙️ Controls
+
+| Action | Key |
+|--------|-----|
+| Move Player | **W / A / S / D** |
+| Rotate Player | **Move Mouse (Cursor Direction)** |
+| Shoot | **Left Mouse Button** |
+
+---
+## 🧩 Game Flow
+
+1. **Start Panel** appears when game launches.  
+   - Click **Start Game** to begin.
+2. **Gameplay** — move and shoot zombies.  
+3. **Zombies** die when hit by bullets.  
+4. **Player dies** on zombie contact → Game Over Panel appears.  
+5. **Restart** button reloads scene directly into gameplay.
