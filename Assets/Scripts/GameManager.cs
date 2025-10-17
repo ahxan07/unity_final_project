@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     public static bool restartFromGame = false;
     public AudioSource audioSource;
     public AudioClip playerDeathClip;
-    public GameObject deathEffectPrefab;
 
     void Start()
     {

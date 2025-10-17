@@ -66,6 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788dcc1252ace4d5d947802dbe5a3fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTrigger
+  PlayerDeathEffectPrefab: {fileID: 8520788985784206592, guid: 09d5db216d9144ed5ae4bd2fb2050caa, type: 3}
 --- !u!1001 &4128356822152443122
 PrefabInstance:
   m_ObjectHideFlags: 0
