@@ -33,7 +33,7 @@ public class SpawnManager : MonoBehaviour
             Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
         }
     }
-    
+
     private Vector3 GenerateSpawnPosition()
     {
         float spawnPosX = Random.Range(minX, maxX);

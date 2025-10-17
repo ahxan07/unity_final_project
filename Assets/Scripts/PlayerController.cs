@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private float minZ = -36.792f;
     private float maxZ = -13.314f;
 
-    private float mouseSensitivity = 10f;
+    private float mouseSensitivity = 5f;
 
     private float rotationY = 0f;
 
@@ -20,10 +20,12 @@ public class PlayerController : MonoBehaviour
     public Transform firePoint;
     public AudioClip fireSound;
     private AudioSource audioSource;
+    private GameManager gm;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gm = GameManager.FindFirstObjectByType<GameManager>();
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour
         float clampedZ = Mathf.Clamp(transform.position.z, minZ, maxZ);
         transform.position = new Vector3(clampedX, transform.position.y, clampedZ);
 
+        if (gm == null || !gm.gameStarted) return;
         if (Input.GetMouseButtonDown(0))
         {
             // Launch a projectile from the player

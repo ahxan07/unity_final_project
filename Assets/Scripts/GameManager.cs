@@ -21,15 +21,15 @@ public class GameManager : MonoBehaviour
     {
         UpdateScoreText(); // Initialize score display
         if (restartFromGame)
-    {
-        StartGame(); // Skip start panel if restarting
-    }
-    else
-    {
-        Time.timeScale = 0f; // Pause until start
-        if (startPanel != null)
-            startPanel.SetActive(true);
-    }
+        {
+            StartGame(); // Skip start panel if restarting
+        }
+        else
+        {
+            Time.timeScale = 0f; // Pause until start
+            if (startPanel != null)
+                startPanel.SetActive(true);
+        }
     }
     public void GameOver()
     {

@@ -15,7 +15,7 @@ public class DetectCollisions : MonoBehaviour
     {
 
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (gameObject.CompareTag("Bullet") && other.CompareTag("Enemy"))
